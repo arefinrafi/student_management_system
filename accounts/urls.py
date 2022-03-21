@@ -78,11 +78,31 @@ urlpatterns = [
     path('HOD/Staff/disapprove_leave/<str:id>',
          hod_views.Staff_Disapprove_Leave, name='staff_disapprove_leave'),
 
+    # This is Student Leave Panel
+    path('HOD/Student/Leave_view', hod_views.student_Leave_View,
+         name='student_leave_view'),
+    path('HOD/Student/approve_leave/<str:id>',
+         hod_views.student_Approve_Leave, name='student_approve_leave'),
+    path('HOD/Student/disapprove_leave/<str:id>',
+         hod_views.student_Disapprove_Leave, name='student_disapprove_leave'),
+
     # This is Staff Feedback Panel
     path('HOD/Staff/feedback', hod_views.Hod_staff_feedback,
          name='hod_staff_feedback'),
     path('HOD/Staff/feedback/save', hod_views.Hod_staff_feedback_save,
          name='hod_staff_feedback_save'),
+
+    # This is Student Feedback Panel
+    path('HOD/Student/feedback', hod_views.Hod_student_feedback,
+         name='hod_student_feedback'),
+    path('HOD/Student/feedback/save', hod_views.Hod_student_feedback_save,
+         name='hod_student_feedback_save'),
+
+
+    # This is HOD Attendence View Panel
+    path('HOD/View_Attendance', hod_views.hod_View_Attendance,
+         name='hod_view_attendance'),
+
 
     # This is Staff Panel
     path('Staff/Home', staff_views.HOME, name='staff_home'),
@@ -104,6 +124,14 @@ urlpatterns = [
     path('Staff/Feedback_save', staff_views.Staff_Feedback_Save,
          name='staff_feedback_save'),
 
+    # This is Staff Take Attendance Panel
+    path('Staff/Take_Attendance', staff_views.staff_Take_Attendance,
+         name='staff_take_attendance'),
+    path('Staff/Attendance_save', staff_views.staff_Attendance_Save,
+         name='staff_attendance_save'),
+    path('Staff/Attendance_view', staff_views.staff_Attendance_view,
+         name='staff_attendance_view'),
+
 
     # Student Panel
     path('Student/Home', student_views.HOME, name='student_home'),
@@ -114,10 +142,24 @@ urlpatterns = [
     path('Student/mark_as_done/<str:status>',
          student_views.student_notifications_mark_as_done, name='student_notifications_mark_as_done'),
 
-    # This is Staff Feedback Panel
+    # This is Student Feedback Panel
     path('Student/Feedback', student_views.student_Feedback,
          name='student_feedback'),
     path('Student/Feedback_save', student_views.student_Feedback_Save,
          name='student_feedback_save'),
+
+    # This is Student Leave Panel
+    path('Student/Apply_for_Leave', student_views.student_Apply_Leave,
+         name='student_apply_leave'),
+    path('Student/Leave_save', student_views.student_Leave_Save,
+         name='student_leave_save'),
+    #     path('HOD/Student/disapprove_leave/<str:id>',
+    #          hod_views.student_Disapprove_Leave, name='student_disapprove_leave'),
+
+
+    # This is Student Attendence View Panel
+    path('Student/View_Attendance', student_views.student_View_Attendance,
+         name='student_view_attendance'),
+
 
 ]

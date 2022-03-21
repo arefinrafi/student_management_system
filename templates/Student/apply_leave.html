@@ -5,10 +5,10 @@
     <div class="page-header">
         <div class="row align-items-center">
             <div class="col">
-                <h3 class="page-title">Staff Leave</h3>
+                <h3 class="page-title">Students Leave</h3>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Staff Leave</li>
+                    <li class="breadcrumb-item active">Students Leave</li>
                 </ul>
             </div>
             <div class="col-auto text-right float-right ml-auto">
@@ -23,7 +23,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{% url 'staff_apply_leave_save' %}" method="post">
+                    <form action="{% url 'student_leave_save' %}" method="post">
                         {% csrf_token %}
                         <div class="col-12">
                             <h5 class="form-title"><span>Apply For Leave</span></h5>
@@ -82,15 +82,15 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% for staff_leave_history in staff_leave_history %}
+                                        {% for student_leave_history in student_leave_history %}
                                         <tr>
-                                            <td>{{staff_leave_history.date}}</td>
-                                            <td>{{staff_leave_history.message}}</td>
+                                            <td>{{student_leave_history.date}}</td>
+                                            <td>{{student_leave_history.message}}</td>
                                             <td class="text-right">
                                                 <div class="actions">
-                                                    {% if staff_leave_history.status == 0 %}
+                                                    {% if student_leave_history.status == 0 %}
                                                     <span class="badge badge-info">Request are Pending</span>
-                                                    {% elif staff_leave_history.status == 1 %}
+                                                    {% elif student_leave_history.status == 1 %}
                                                     <span class="badge badge-success">Accepted</span>
                                                     {% else %}
                                                     <span class="badge badge-danger">Rejected</span>
